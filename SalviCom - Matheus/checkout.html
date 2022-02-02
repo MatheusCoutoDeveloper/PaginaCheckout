@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html,
+    body {
+      background: #ffffff;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    /* HEADER */
+    #HEADER {
+      width: 100%;
+      background: linear-gradient(180deg, #cccccc 0%, #ededed 100%);
+      margin-bottom: 35px;
+    }
+    #HEADER .logo {
+      width: 20%;
+      height: 144px;
+      margin-left: 22%;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    #HEADER .logo img {
+      width: 173px;
+      height: 144px;
+    }
+    #HEADER .info-header {
+      margin-left: 20%;
+      margin-bottom: 20px;
+    }
+    #HEADER .info-header .contato {
+      margin-right: 20%;
+      margin-top: 60px;
+      width: 100%;
+    }
+    #HEADER .info-header .contato img {
+      width: 30px;
+      height: 42px;
+      margin-top: -35px;
+      margin-right: 10px;
+      display: inline-block;
+    }
+    #HEADER .info-header .texto {
+      width: 171px;
+      display: inline-block;
+    }
+    #HEADER .info-header .texto p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 2px;
+      font-size: 12px;
+      color: #000000;
+    }
+
+    /*
+          Barra de Opções - Categorias , Pesquisa , Carrinho
+    */
+
+    #barra-opcoes {
+      height: 52px;
+      width: 80%;
+      margin: 0 10%;
+    }
+    .btn-categoria {
+      display: inline-block;
+      width: 20%;
+      height: 52px;
+      background: #ea7a1e;
+      border-radius: 10px;
+      text-align: center;
+      padding: 5px;
+    }
+    .btn-categoria p {
+      font-family: Jockey One;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 20px;
+      margin-top: 5px;
+      color: #ffffff;
+    }
+    .pesquisa {
+      display: inline-block;
+      width: 70%;
+      margin-left: 20px;
+    }
+    .pesquisa #search {
+      width: 85%;
+      height: 52px;
+      background: #ffffff;
+      border: 1px solid #c7c7c7;
+      box-sizing: border-box;
+      border-radius: 5px;
+      display: inline-block;
+      padding: 15px;
+    }
+    .pesquisa #search::placeholder {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 18px;
+      color: #adacac;
+    }
+    .pesquisa .btn-search {
+      width: 56px;
+      height: 52px;
+      background: #ea7a1e;
+      border-radius: 5px;
+      text-align: center;
+      display: inline-block;
+      border: 0px;
+      position: absolute;
+      margin-left: 5px;
+    }
+    .pesquisa .btn-search img {
+      width: 26px;
+      height: 26px;
+    }
+    .carrinho-btn {
+      display: inline-block;
+      width: 43px;
+      height: 38px;
+      border: 0px;
+      margin-top: 10px;
+      margin-left: -40px;
+    }
+    .carrinho-btn p {
+      background: #ea7a1e;
+      border-radius: 50px;
+      padding: 3px 9px;
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 18px;
+      color: #ffffff;
+      margin-top: -8px;
+      margin-left: -13px;
+      position: absolute;
+    }
+
+    /*
+          Pedido
+    */
+
+    #PEDIDO {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2%;
+      margin-top: 50px;
+    }
+    #PEDIDO .info-inicial {
+      text-align: center;
+    }
+    #PEDIDO .info-inicial h4 {
+      font-family: Jockey One;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 42px;
+      color: #000000;
+      margin-bottom: 12px;
+    }
+    #PEDIDO .info-inicial p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 25px;
+      color: #000000;
+      margin-bottom: 31px;
+    }
+    .info h6 {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 19px;
+      text-align: left;
+      color: #ea7a1e;
+    }
+    .info p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 19px;
+      text-align: left;
+      color: #000000;
+    }
+    .info-detalhe {
+      width: 90%;
+      margin-left: 6%;
+      border-bottom: 2px solid #ea7a1e;
+      margin-top: 35px;
+    }
+    .info-detalhe h3 {
+      font-family: Jockey One;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 30px;
+      line-height: 42px;
+      color: #000000;
+      text-align: left;
+    }
+    .info-detalhe p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 15px;
+      color: #ea7a1e;
+      text-align: right;
+      margin-top: 15px;
+    }
+
+    /*
+        Tabela Detalhada
+    */
+    .center {
+      width: 90%;
+      margin-left: 6%;
+    }
+    #TABELA-DETALHADA {
+      margin-top: 30px;
+      font-size: 12px;
+    }
+    #TABELA-DETALHADA .table {
+      border: 2px solid rgb(228, 227, 227);
+      border-radius: 5px;
+    }
+    #TABELA-DETALHADA .link {
+      color: rgb(52, 123, 255);
+      font-weight: normal;
+    }
+    #TABELA-DETALHADA strong {
+      color: #000;
+    }
+
+    /*
+        Listas de Localização
+    */
+    #INFO-LOCAL h3 {
+      font-family: Jockey One;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 25px;
+      line-height: 35px;
+      color: #000000;
+      margin-top: 20px;
+    }
+    #INFO-LOCAL .lista {
+      border: 2px solid rgb(241, 241, 241);
+      border-radius: 5px;
+      padding: 5px 15px;
+    }
+    #INFO-LOCAL .lista p {
+      color: rgb(20, 20, 20);
+      display: block;
+    }
+
+    /*
+        Social
+    */
+
+    #SOCIAL .imgs {
+      margin-top: 68px;
+      margin-bottom: 68px;
+      text-align: center;
+    }
+    #SOCIAL .imgs img {
+      width: 82.86px;
+      height: 80px;
+    }
+
+    /*
+        Footer
+    */
+
+    #FOOTER {
+      width: 100%;
+      background: #242424;
+    }
+
+    #FOOTER .center-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2%;
+    }
+    #FOOTER .logo {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+    #FOOTER .logo img {
+      width: 120px;
+      height: 100.27px;
+    }
+    #FOOTER .footer-middle {
+      margin-top: 25px;
+      margin-left: 100px;
+    }
+    #FOOTER .texto-footer {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-size: 16px;
+      color: #ffffff;
+    }
+    #FOOTER .texto-footer img,
+    p {
+      display: inline-block;
+    }
+    #FOOTER .menu-footer a {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      color: #e86c19;
+    }
+    #FOOTER .menu-footer p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 20px;
+      color: #fff;
+    }
+    #FOOTER .card {
+      width: 178px;
+      height: 112px;
+      margin-top: 20px;
+      margin-left: 20px;
+      background: #242424;
+      border: 1px solid #242424;
+    }
+    #FOOTER .copy {
+      width: 100%;
+      background: #7a7a7a;
+      padding: 3px 0;
+      text-align: center;
+    }
+    #FOOTER .copy p {
+      font-family: Source Sans Pro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 9px;
+      line-height: 11px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+    @media screen and (max-width: 1350px) {
+      .carrinho-btn {
+        margin-left: 10px;
+      }
+    }
+    @media screen and (max-width: 929px) {
+      .pesquisa {
+        width: 70%;
+        margin-left: 10px;
+      }
+      .carrinho-btn {
+        margin-left: 5px;
+      }
+      #FOOTER .logo {
+        margin-left: 20px;
+        width: 10%;
+      }
+    }
+    @media screen and (max-width: 760px) {
+      #FOOTER .logo {
+        width: 100%;
+        text-align: center;
+      }
+      #FOOTER .footer-middle {
+        margin-left: 15%;
+        margin-right: 15%;
+        text-align: center;
+      }
+      #FOOTER .texto-footer {
+        font-size: 14px;
+      }
+
+      #FOOTER .card {
+        width: 40%;
+        height: 112px;
+        margin: 40px 30%;
+      }
+    }
+
+    @media screen and (max-width: 745px) {
+      .btn-categoria {
+        width: 100%;
+      }
+      .pesquisa {
+        width: 100%;
+        margin: 0;
+        margin-top: 20px;
+      }
+      .pesquisa .btn-search {
+        margin-left: 10px;
+      }
+      .pesquisa #search {
+        width: 70%;
+      }
+      .btn-car {
+        margin: 0 46%;
+      }
+      #barra-opcoes {
+        margin-bottom: 150px;
+      }
+    }
+    @media screen and (max-width: 280px) {
+      .pesquisa #search {
+        width: 60%;
+      }
+    }
+  </style>
+
+  <body>
+    <header id="HEADER">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="logo"><img src="img/logo-salvi.png" alt="logo" /></div>
+        </div>
+        <div class="col-md-3">
+          <div class="info-header">
+            <div class="contato">
+              <img src="img/icon-mapa.png" alt="" />
+              <div class="texto">
+                <p>R. Florêncio de Abreu, 605 – Luz</p>
+                <p>São Paulo – SP</p>
+              </div>
+            </div>
+          </div>
+          <!--info-header-->
+        </div>
+        <!--col-md-3-->
+        <div class="col-md-3">
+          <div class="info-header">
+            <div class="contato">
+              <img src="img/icon-tel.png" alt="" />
+              <div class="texto">
+                <p>(11) 3327-0033</p>
+                <p>vendas@salvicasagrande.com.br</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </header>
+    <!--header-->
+    <section id="barra-opcoes" class="row">
+      <div class="btn-categoria"><p>CATEGORIAS</p></div>
+      <div class="pesquisa">
+        <input type="text" name="search" id="search" placeholder="Buscar:" />
+        <button class="btn-search">
+          <img src="img/icon-search.png" alt="" />
+        </button>
+      </div>
+      <!--pesquisa-->
+      <div class="btn-car">
+        <button class="carrinho-btn">
+          <img src="img/icon-carrinho.png" alt="" />
+          <p>0</p>
+        </button>
+        <div class="clear"></div>
+      </div>
+    </section>
+    <!--barra-opcoes-->
+
+    <div id="PEDIDO">
+      <section class="section-inicial">
+        <div class="info-inicial">
+          <h4>PEDIDO CONCLUÍDO</h4>
+          <p>
+            Obrigado por comprar conosco! Você pode contar com a qualidade e
+            tradição do Grupo Salvi.
+          </p>
+        </div>
+
+        <div class="detalhe-pedido center row">
+          <div class="info col-md-3">
+            <h6>NÚMERO DO PEDIDO</h6>
+            <p>146</p>
+          </div>
+          <div class="info col-md-2">
+            <h6>DATA</h6>
+            <p>11/01/2010</p>
+          </div>
+          <div class="info col-md-2">
+            <h6>E-MAIL</h6>
+            <p>contato@mail.com</p>
+          </div>
+          <div class="info col-md-2">
+            <h6>TOTAL</h6>
+            <p>R$298,00</p>
+          </div>
+          <div class="info col-md-3">
+            <h6>MÉTODO DE PAGAMENTO</h6>
+            <p>Transferência Bancária</p>
+          </div>
+        </div>
+      </section>
+      <!--section-inicial-->
+      <div class="row center info-detalhe">
+        <div class="col-md-10"><h3>Detalhes do pedido</h3></div>
+        <div class="col-md-2"><p>OCULTAR</p></div>
+      </div>
+      <div id="TABELA-DETALHADA" class="center">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Produtos</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="link">
+                Manômetros diferencial para cabines de sensibilizantes.( Similar
+                Magnehelic) Salvi <strong>x3</strong>
+              </th>
+              <td>R$1.650,00</td>
+            </tr>
+            <tr>
+              <th scope="row" class="link">
+                Manômetro Sem Glicerina Escala 0 A 2,5 KG/CM2, Visor 100mm Linha
+                111.100R Salvi - Calibração Rastreada <strong>x2</strong>
+              </th>
+              <td>R$279,04</td>
+            </tr>
+            <tr>
+              <th scope="row" class="link">
+                Manômetro Sem Glicerina Escala 0 A 2,5 KG/CM2, Visor 100mm Linha
+                111.100R Salvi - Sem Calibração <strong>x5</strong>
+              </th>
+              <td>R$547,60</td>
+            </tr>
+            <tr>
+              <th scope="row">Subtotal:</th>
+
+              <td><strong>R$2.952,64</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">Frete:</th>
+              <td>
+                <strong>R$88,95</strong>
+                via PAC
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">Método de pagamento:</th>
+              <td><strong>Trânsferencia bancária direta</strong></td>
+            </tr>
+            <tr>
+              <th scope="row">Total:</th>
+              <td><strong>R$3.038,59</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div id="INFO-LOCAL">
+          <h3>Detalhes do pedido</h3>
+          <div class="lista">
+            <p>Fulana de Teste</p>
+            <p>asdad,100</p>
+            <p>centro</p>
+            <p>riberão pires</p>
+            <p>São Paulo</p>
+            <p>09443-430</p>
+            <p><i class="bi bi-telephone"></i>(11) 94321-1234</p>
+            <p>caroline@oliveiracomunicacao.com.br</p>
+          </div>
+        </div>
+        <!--info-local-->
+        <div id="INFO-LOCAL">
+          <h3>Endereço de Entrega</h3>
+          <div class="lista">
+            <p>fulano de tal</p>
+            <p>asdad,100</p>
+            <p>centro</p>
+            <p>saddasd</p>
+            <p>São Paulo</p>
+            <p>09443-430</p>
+          </div>
+        </div>
+        <!--info-local-->
+
+        <div id="SOCIAL">
+          <div class="imgs">
+            <a href=""><img src="img/globo.png" alt="" /></a>
+            <a href=""><img src="img/face.png" alt="" /></a>
+            <a href=""><img src="img/yt.png" alt="" /></a>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!--TABELA-DETALHADA-->
+    </div>
+    <!--pedido-->
+    <footer id="FOOTER">
+      <div class="center-footer">
+        <div class="row">
+          <div class="logo col-md-3">
+            <img src="img/logo-salvi.png" alt="" />
+          </div>
+          <div class="col-md-6">
+            <div class="footer-middle">
+              <div class="texto-footer">
+                <img src="img/icone-mapa-footer.png" alt="" />
+                <p>R. Florêncio de Abreu, 605 – Luz - São Paulo – SP</p>
+              </div>
+              <div class="texto-footer">
+                <img src="img/icone-telefone-footer.png" alt="" />
+                <p>(11) 3327-0033</p>
+              </div>
+              <div class="menu-footer">
+                <a href="">Meu Carrinho</a>
+                <p>|</p>
+                <a href="">Meus Pedidos</a>
+              </div>
+            </div>
+          </div>
+          <div class="card col-md-2">
+            <img src="img/bandeira.jpg" alt="" />
+          </div>
+        </div>
+        <!--row-->
+      </div>
+      <!--center-footer-->
+      <div class="copy">
+        <p>Salvi Casagrande 2020 - Todos os direitos reservados</p>
+      </div>
+    </footer>
+  </body>
+</html>
